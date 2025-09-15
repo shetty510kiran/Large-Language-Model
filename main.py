@@ -36,17 +36,17 @@ class SQLGenerationPipeline:
     def print_banner(self):
         """Print a professional banner with enhanced branding"""
         banner = f"""
-{Fore.TURQUOISE}╔════════════════════════════════════════════════════════════════════════════╗
+{Fore.BLUE}╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                              ║
-║   {Fore.CYAN}███████╗ ██████╗ ██╗     ██╗   ██╗███████╗██╗ ██████╗ ███╗   ██╗{Fore.TURQUOISE}   ║
-║   {Fore.CYAN}██╔════╝██╔═══██╗██║     ██║   ██║██╔════╝██║██╔═══██╗████╗  ██║{Fore.TURQUOISE}   ║
-║   {Fore.CYAN}███████╗██║   ██║██║     ██║   ██║███████╗██║██║   ██║██╔██╗ ██║{Fore.TURQUOISE}   ║
-║   {Fore.CYAN}╚════██║██║   ██║██║     ██║   ██║╚════██║██║██║   ██║██║╚██╗██║{Fore.TURQUOISE}   ║
-║   {Fore.CYAN}███████║╚██████╔╝███████╗╚██████╔╝███████║██║╚██████╔╝██║ ╚████║{Fore.TURQUOISE}   ║
-║   {Fore.CYAN}╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝{Fore.TURQUOISE}   ║
+║   {Fore.BLUE}███████╗ ██████╗ ██╗     ██╗   ██╗███████╗██╗ ██████╗ ███╗   ██╗{Fore.BLUE}   ║
+║   {Fore.BLUE}██╔════╝██╔═══██╗██║     ██║   ██║██╔════╝██║██╔═══██╗████╗  ██║{Fore.BLUE}   ║
+║   {Fore.BLUE}███████╗██║   ██║██║     ██║   ██║███████╗██║██║   ██║██╔██╗ ██║{Fore.BLUE}   ║
+║   {Fore.BLUE}╚════██║██║   ██║██║     ██║   ██║╚════██║██║██║   ██║██║╚██╗██║{Fore.BLUE}   ║
+║   {Fore.BLUE}███████║╚██████╔╝███████╗╚██████╔╝███████║██║╚██████╔╝██║ ╚████║{Fore.BLUE}   ║
+║   {Fore.BLUE}╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝{Fore.BLUE}   ║
 ║                                                                              ║
-║           {Fore.WHITE}SQL SCRIBE - AUTONOMOUS SQL GENERATION TOOL{Fore.TURQUOISE}                 ║
-║                 {Fore.YELLOW}Version 1.0 • Engineered by: Kiran Shetty{Fore.TURQUOISE}       ║
+║           {Fore.WHITE}SQL SCRIBE - AUTONOMOUS SQL GENERATION TOOL{Fore.BLUE}                 ║
+║                 {Fore.YELLOW}Version 1.0 • Engineered by: Kiran Shetty{Fore.BLUE}       ║
 ║                                                                              ║
 ╚════════════════════════════════════════════════════════════════════════════╝{Style.RESET_ALL}
 
@@ -69,15 +69,15 @@ class SQLGenerationPipeline:
         for num, model, desc in models:
             print(f"  {num}. {model} - {desc}")
         
-        choice = input(f"\n{Fore.CYAN}Select model (1-5, or press Enter for default): {Style.RESET_ALL}").strip()
+        choice = input(f"\n{Fore.BLUE}Select model (1-5, or press Enter for default): {Style.RESET_ALL}").strip()
         if choice in ['1', '2', '3', '4', '5']:
             self.config['model'] = models[int(choice)-1][1]
         
         print(f"Selected model: {Fore.GREEN}{self.config['model']}{Style.RESET_ALL}")
         
-        advanced = input(f"\n{Fore.CYAN}Configure advanced settings? (y/N): {Style.RESET_ALL}").strip().lower()
+        advanced = input(f"\n{Fore.BLUE}Configure advanced settings? (y/N): {Style.RESET_ALL}").strip().lower()
         if advanced == 'y':
-            temp_input = input(f"{Fore.CYAN}Temperature (0.0-1.0, default 0.1): {Style.RESET_ALL}").strip()
+            temp_input = input(f"{Fore.BLUE}Temperature (0.0-1.0, default 0.1): {Style.RESET_ALL}").strip()
             if temp_input:
                 try:
                     temp = float(temp_input)
@@ -86,7 +86,7 @@ class SQLGenerationPipeline:
                 except ValueError:
                     print(f"{Fore.RED}Invalid temperature, using default{Style.RESET_ALL}")
             
-            tokens_input = input(f"{Fore.CYAN}Max tokens (100-4000, default 2000): {Style.RESET_ALL}").strip()
+            tokens_input = input(f"{Fore.BLUE}Max tokens (100-4000, default 2000): {Style.RESET_ALL}").strip()
             if tokens_input:
                 try:
                     tokens = int(tokens_input)
@@ -95,7 +95,7 @@ class SQLGenerationPipeline:
                 except ValueError:
                     print(f"{Fore.RED}Invalid token count, using default{Style.RESET_ALL}")
             
-            retry_input = input(f"{Fore.CYAN}Retry attempts (1-5, default 3): {Style.RESET_ALL}").strip()
+            retry_input = input(f"{Fore.BLUE}Retry attempts (1-5, default 3): {Style.RESET_ALL}").strip()
             if retry_input:
                 try:
                     retries = int(retry_input)
@@ -113,7 +113,7 @@ class SQLGenerationPipeline:
     # ⭐ ENHANCEMENT: Parse flexible question selection (ranges, commas, mixed)
     def parse_question_selection(self, total_questions: int) -> List[int]:
         """Parse user input like '1-6', '1,5,7', '15-20' into list of question IDs"""
-        selection = input(f"\n{Fore.CYAN}Enter question IDs to process (e.g., 1-6, 1,5,7, 15-20 or press Enter for all): {Style.RESET_ALL}").strip()
+        selection = input(f"\n{Fore.BLUE}Enter question IDs to process (e.g., 1-6, 1,5,7, 15-20 or press Enter for all): {Style.RESET_ALL}").strip()
         
         if not selection:
             return list(range(1, total_questions + 1))
@@ -182,7 +182,7 @@ class SQLGenerationPipeline:
     def initialize_groq(self):
         print(f"\n{Fore.YELLOW}Groq API Configuration{Style.RESET_ALL}")
         print("="*50)
-        api_key = getpass.getpass(f"{Fore.CYAN}Please enter your Groq API key: {Style.RESET_ALL}")
+        api_key = getpass.getpass(f"{Fore.BLUE}Please enter your Groq API key: {Style.RESET_ALL}")
         try:
             self.groq_client = Groq(api_key=api_key)
             test_response = self.groq_client.chat.completions.create(
@@ -376,7 +376,7 @@ Question: "{question}"
         selected_ids = self.parse_question_selection(len(self.questions))
         selected_questions = [q for q in self.questions if q['question_id'] in selected_ids]
 
-        print(f"{Fore.CYAN}Processing {len(selected_questions)} selected questions: {selected_ids}{Style.RESET_ALL}")
+        print(f"{Fore.BLUE}Processing {len(selected_questions)} selected questions: {selected_ids}{Style.RESET_ALL}")
 
         with tqdm(total=len(selected_questions), desc="Processing", 
                   bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]") as pbar:
@@ -408,7 +408,7 @@ Question: "{question}"
         print("4. CSV + Markdown report")
         print("5. All formats")
         
-        export_choice = input(f"\n{Fore.CYAN}Select format (1-5, default 1): {Style.RESET_ALL}").strip() or '1'
+        export_choice = input(f"\n{Fore.BLUE}Select format (1-5, default 1): {Style.RESET_ALL}").strip() or '1'
         files_created = []
 
         if export_choice in ['1', '3', '4', '5']:
@@ -469,7 +469,7 @@ Question: "{question}"
                 f.write("**SQL**:\n```sql\n" + r['sql'] + "\n```\n---")
 
     def print_summary_statistics(self):
-        print(f"\n{Fore.YELLOW}📊 FINAL REPORT — Engineered by KIran Shetty{Style.RESET_ALL}")
+        print(f"\n{Fore.YELLOW}📊 FINAL REPORT — Engineered by Kiran Shetty{Style.RESET_ALL}")
         print("="*70)
 
         total = len(self.results)
@@ -478,7 +478,7 @@ Question: "{question}"
 
         print(f"✅ Total Processed: {total}")
         print(f"🎯 AI Success Rate: {Fore.GREEN}{success}/{total} ({success/total*100:.1f}%){Style.RESET_ALL}")
-        print(f"📈 Average Confidence: {Fore.CYAN}{avg_conf:.3f}{Style.RESET_ALL}")
+        print(f"📈 Average Confidence: {Fore.BLUE}{avg_conf:.3f}{Style.RESET_ALL}")
 
         # ⭐ ENHANCEMENT: Show performance metrics
         if self.token_usage:
@@ -494,7 +494,7 @@ Question: "{question}"
             print(f"  Total Tokens Consumed: {total_tokens:,}")
             print(f"  Avg Latency per Query: {avg_latency:.2f}s")
 
-        print(f"\n{Fore.CYAN}Target Sources Chosen by AI:{Style.RESET_ALL}")
+        print(f"\n{Fore.BLUE}Target Sources Chosen by AI:{Style.RESET_ALL}")
         sources = {}
         for r in self.results:
             src = r['target_source']
