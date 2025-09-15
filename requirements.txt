@@ -1,3 +1,39 @@
+To build the project from scratch, you'll need the following components and dependencies, from the operating system all the way down to the specific Python libraries.
+
+-----
+
+### 🖥️ Operating System & Environment
+
+  * **Operating System:** Windows, macOS, or Linux. The project is platform-independent.
+  * **Python:** You need Python installed on your system. The project uses features compatible with **Python 3.11** or a similar recent version.
+  * **Python Package Manager:** `pip` (comes with Python) is required to install the necessary libraries.
+
+-----
+
+### 📦 Project Files & Structure
+
+Your project directory must have the following structure to work correctly with the provided code:
+
+```
+your_project_folder/
+├── app.py          # The main Python script
+├── requirements.txt  # List of Python dependencies
+└── data/             # Folder for all data sources
+    ├── sales_dw.json
+    ├── marketing_dw.json
+    └── questions.csv
+```
+
+-----
+
+### 📚 Libraries & Dependencies
+
+The following Python libraries are essential for the project's functionality and are listed in the `requirements.txt` file. You can install them with the command `pip install -r requirements.txt`.
+
+  * **`groq`**: The official client for the Groq API, which provides access to the large language model.
+  * **`pandas`**: A powerful data analysis and manipulation library used for handling data and saving results in a structured CSV format.
+  * **`tqdm`**: A library to display smart progress bars in the console, providing visual feedback during the question processing loop.
+  * **`colorama`**: Used to add colored text to the terminal output, making the user interface more professional and readable.
 groq>=0.9.0
 pandas>=2.0.0
 tqdm>=4.66.0
