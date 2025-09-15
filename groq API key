@@ -1,0 +1,13 @@
+How to get Groq API Key?
+To get a Groq API key, you typically need to follow these steps:
+# 1. Sign Up or Log In
+     First, you'll need to sign up for an account on the Groq platform or log in if you already have an account. This might involve providing some basic information        like your name, email address, and possibly some details about your intended use of their services.
+# 2. Go to the Groq Cloud
+    Once, you go to the groq cloud then click on the API keys
+# 3. Create an API Key
+     In the API key section, there should be an option to create API key. This process might vary slightly depending on the platform, but it generally involves:
+     Clicking on a button or link that says "Create API Key".
+     Naming the API key (optional, but useful for organization if you plan to create multiple keys).
+     Setting permissions or scopes for the API key, if applicable. This step determines what the API key can and cannot do.
+# 4. Copy the API Key
+    Once the API key is generated, you will be shown the key. Copy this key and store it securely. Note that for security reasons, you might only be shown the key         once, so ensure you store it in a safe place.
