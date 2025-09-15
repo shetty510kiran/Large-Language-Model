@@ -11,3 +11,5 @@ To get a Groq API key, you typically need to follow these steps:
      Setting permissions or scopes for the API key, if applicable. This step determines what the API key can and cannot do.
 # 4. Copy the API Key
     Once the API key is generated, you will be shown the key. Copy this key and store it securely. Note that for security reasons, you might only be shown the key         once, so ensure you store it in a safe place.
+
+Groq API Key starts with gsk_3*****
